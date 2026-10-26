@@ -1,0 +1,32 @@
+{
+  "name": "qqbot-music-share",
+  "version": "1.0.0",
+  "description": "Let your QQ AI share music: search NetEase Cloud Music and send a playable music card (OneBot music segment).",
+  "type": "module",
+  "main": "src/mcp-music.js",
+  "bin": {
+    "qqbot-music-share": "src/mcp-music.js"
+  },
+  "files": [
+    "src",
+    "install.sh",
+    "README.md"
+  ],
+  "keywords": [
+    "qq",
+    "onebot",
+    "snowluma",
+    "dsh",
+    "mcp",
+    "music",
+    "netease"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "@modelcontextprotocol/sdk": "^1.x",
+    "zod": "^3.x"
+  }
+}
