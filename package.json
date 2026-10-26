@@ -25,6 +25,14 @@
   "engines": {
     "node": ">=20"
   },
+  "dshMcp": {
+    "serverName": "music",
+    "entry": "src/mcp-music.js",
+    "allowPrefix": "mcp__music__",
+    "copy": [
+      "src/music-taste.json"
+    ]
+  },
   "peerDependencies": {
     "@modelcontextprotocol/sdk": "^1.x",
     "zod": "^3.x"
