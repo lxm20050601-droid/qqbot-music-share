@@ -1,0 +1,59 @@
+{
+  "_comment": "每个角色有自己的音乐口味；key 对应 qq-bridge/roles/<name>.md 的角色名（current-role.json 里的 role）。找不到就用 default。",
+  "avoid": "伴奏|翻唱|cover|remix|dj版|深情版|纯音乐版|0\\.8x|1\\.2x",
+  "profiles": {
+    "caster": {
+      "desc": "由比滨结衣：温柔、有点笨拙的日常感，偏爱日系女声和动画歌曲。",
+      "keywords": [
+        "やなぎなぎ 春擬き",
+        "ClariS コネクト",
+        "日系 女声 温柔",
+        "J-Pop 女声 治愈",
+        "アニソン 名曲",
+        "由比滨结衣 角色歌"
+      ],
+      "moods": {
+        "happy": ["元气 日系 女声", "夏天 日语 歌", "轻快 J-Pop"],
+        "sad": ["安静 钢琴 日语", "抒情 女声 日语", "离别 日语 歌"],
+        "calm": ["治愈 轻音乐", "acoustic 日语", "午后 钢琴"]
+      }
+    },
+    "小鲸鱼": {
+      "desc": "DeepSeek 鲸鱼娘：深海、电子、氛围感，学习时会放 lofi。",
+      "keywords": [
+        "deep sea ambient",
+        "ocean ambient music",
+        "lofi study",
+        "电子 氛围",
+        "chill electronic"
+      ],
+      "moods": {
+        "happy": ["轻快 电子", "bubbly electronic"],
+        "sad": ["ambient melancholy", "钢琴 安静"],
+        "calm": ["lofi chill", "深海 氛围 音乐"]
+      }
+    },
+    "傲娇助手": {
+      "desc": "傲娇助手：嘴上嫌弃，歌单其实很吵很甜。",
+      "keywords": [
+        "傲娇 角色歌",
+        "动漫 甜 女声",
+        "J-Pop 活力",
+        "ツンデレ 曲"
+      ],
+      "moods": {
+        "happy": ["活力 J-Pop", "元气 动漫 歌"],
+        "sad": ["假装不在乎 抒情", "安静 日系 女声"]
+      }
+    },
+    "default": {
+      "desc": "默认口味：不挑，轻音乐和日系为主。",
+      "keywords": ["轻音乐 治愈", "J-Pop 女声", "lofi chill", "钢琴 安静"],
+      "moods": {
+        "happy": ["轻快 流行"],
+        "sad": ["安静 钢琴"],
+        "calm": ["治愈 轻音乐"]
+      }
+    }
+  }
+}

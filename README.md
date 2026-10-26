@@ -75,14 +75,50 @@ bash install.sh /root/workspace/qq-bridge
 | `key` | `group:群号` 或 `private:QQ号`（AI 从唤醒提示里拿到） |
 | `query` | 要分享的歌 |
 
-返回：
+### `qq_music_taste`（v1.1+）
+
+查看**当前角色**的音乐口味（来自 `src/music-taste.json`）。
+返回：`role / desc / keywords / moods`
+
+### `qq_share_favorite_music`（v1.1+）
+
+按**角色人设**挑一首"自己喜欢的歌"发出去。
+
+| 参数 | 说明 |
+|---|---|
+| `key` | 会话 key |
+| `mood` | 可选：`happy` / `sad` / `calm` |
+| `dryRun` | 只返回候选、不发送 |
+
+它会：
+1. 读 `state/current-role.json` 拿到当前角色（如 `caster`）
+2. 从该角色的品味关键词里随机选 2~3 个去搜
+3. 过滤掉伴奏/翻唱/remix（`avoid` 正则）
+4. 在候选里**随机**挑一首（像真的"自己选的"）
+5. 发音乐卡片；失败降级文字
+
+## 角色口味配置（`src/music-taste.json`）
+
 ```json
-{ "ok": true, "sent": "music-card", "song": {...}, "messageId": -199165843 }
+{
+  "avoid": "伴奏|翻唱|cover|remix|dj版|深情版",
+  "profiles": {
+    "caster": {
+      "desc": "由比滨结衣：温柔日常感，偏日系女声",
+      "keywords": ["やなぎなぎ 春擬き", "ClariS コネクト", "日系 女声 温柔"],
+      "moods": {
+        "happy": ["元气 日系 女声"],
+        "sad":   ["安静 钢琴 日语"],
+        "calm":  ["治愈 轻音乐"]
+      }
+    }
+  }
+}
 ```
-若卡片失败：
-```json
-{ "ok": true, "sent": "text-fallback", "cardError": "...", "messageId": 123 }
-```
+
+- `key` = `qq-bridge/roles/<角色名>.md` 的文件名（也是 `current-role.json` 里的 `role`）
+- 没配的角色自动用 `default`
+- 想给新角色加口味：加一条 profile 即可，**不用改代码**
 
 ## 验证
 
